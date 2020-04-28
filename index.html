@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Responsive Web design documentation</title>
+  </head>
+  <body>
+    <header class="nav-header">
+      <nav id="navbar">
+        <header>
+          <h1>CSS Documentation</h1>
+        </header>
+
+        <ul class="nav-ul">
+          <li>
+            <a
+              href="#Underline_links_on_hover_with_pseudo-elements"
+              class="nav-link"
+              ><span class="nav-text"
+                >Underline links on hover with pseudo-elements</span
+              ></a
+            >
+          </li>
+
+          <li>
+            <a href="#Reset_best_practise" class="nav-link"
+              ><span class="nav-text">Reset best practise</span></a
+            >
+          </li>
+          <li>
+            <a href="#Adjacent_sibling_combinators" class="nav-link"
+              ><span class="nav-text">Adjacent sibling combinators</span></a
+            >
+          </li>
+          <li>
+            <a href="#Centering_with_margins" class="nav-link"
+              ><span class="nav-text">Centering with margins</span></a
+            >
+          </li>
+          <li>
+            <a href="#Sources" class="nav-link"
+              ><span class="nav-text">Sources</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main-doc">
+      <section
+        id="Underline_links_on_hover_with_pseudo-elements"
+        class="main-section"
+      >
+        <header id="underline-links">
+          <h2>
+            Underline links on hover with pseudo-elements
+          </h2>
+        </header>
+        <p>
+          <span class="test">Look</span> at what happens when you hover over
+          this <span class="hover-line"><strong>word</strong></span
+          >.
+        </p>
+        <p>Here is the code that was used to make this effect :</p>
+        <code>
+          a::after { <br />
+          content: "";<br />
+          border-bottom: 4px solid blue; <br />
+          position: absolute; <br />
+          top: 19px; <br />
+          left: 0; <br />
+          right: 0; <br />
+          bottom: 0; <br />
+          transform: scale(0,1); <br />
+          transition: all 200ms ease-in-out; <br />
+          } <br />
+          a:hover::after { <br />
+          transform: scale(1, 1); <br />
+          } <br />
+        </code>
+      </section>
+
+      <section id="Reset_best_practise" class="main-section">
+        <header id="reset"><h2>Reset best practise</h2></header>
+        <p>
+          In modern browsers, the reset below can be used to reset box sizing,
+          margins and paddings :
+        </p>
+        <code>
+          html { <br />
+          box-sizing: border-box; <br />
+          } <br />
+
+          *,<br />
+          *::before,<br />
+          *::after {<br />
+          margin: 0;<br />
+          padding: 0;<br />
+          box-sizing: inherit;<br />
+          } <br />
+        </code>
+      </section>
+
+      <section id="Adjacent_sibling_combinators" class="main-section">
+        <header><h2>Adjacent sibling combinators</h2></header>
+        <p>
+          Sometimes, setting a margin-right to all items causes the last button
+          on the right to also have a margin to the right. To prevent this,
+          write this instead of the margin-right :
+        </p>
+        <code>
+          .nav__item + .nav__item { <br />
+          margin-left: 1em;<br />
+          } <br />
+        </code>
+      </section>
+
+      <section id="Centering_with_margins" class="main-section">
+        <header><h2>Centering with margins</h2></header>
+        <p>
+          It is possible to use blocks to center margins. Be careful though: the
+          block you're working on needs to have a set width to have a set width
+          in order for this to work.
+        </p>
+        <code>
+          .content {<br />
+          margin: 0 auto;<br />
+          } <br />
+        </code>
+      </section>
+
+      <section id="Sources" class="main-section">
+        <header>
+          <h2>
+            Sources
+          </h2>
+        </header>
+        <p>
+          Most of the content on this site were things i learned through Kevin
+          Powell's <em>Conquering Responsive Layouts</em> course. Some other
+          tips gathered from his course are :
+        </p>
+        <ul class="tip-list">
+          <li>
+            Use "%" for widths. Default for block elements is 100% of parent
+            element.
+          </li>
+          <li>
+            Set a <code class="inline-code">max-width</code> so content doesn't
+            stretch too much on larger screens.
+          </li>
+          <li>
+            For fonts, use rem, not em as em will always look at parent element
+            and font sizes will get bigger the farther they are nested in their
+            parent element.
+          </li>
+          <li>
+            For properties such as margins, paddings, widths or any other
+            property than <code class="inline-code">font-size</code>, using em
+            will make said property look at the
+            <code class="inline-code">font-size</code> of the element.
+          </li>
+          <li>When possible, use class names instead of element names.</li>
+        </ul>
+        <p>
+          Another great resource for anything related to CSS, HTML or Javascript
+          is
+          <a
+            class="body-link"
+            href="https://developer.mozilla.org/en-US/"
+            target="_blank"
+            >MDN</a
+          >.
+        </p>
+        <p>
+          All the code above was stuff I learned while coding the first three
+          projects of the <em>Responsive Web Design</em> Certificate.
+        </p>
+        <hr />
+        <p>
+          This page was made as part of a project for
+          <a
+            class="body-link"
+            href="https://www.freecodecamp.org/"
+            target="_blank"
+            >Freecodecamp</a
+          >.
+        </p>
+        <p>
+          Coded by
+          <a class="body-link" href="http://github.com/web-Nuo" target="_blank"
+            >Manon</a
+          >.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
